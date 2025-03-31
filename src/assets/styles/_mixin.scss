@@ -1,0 +1,27 @@
+@import './var';
+
+@mixin bannersLayout($jc, $ai, $gap) {
+  display: flex;
+  flex-direction: column;
+  justify-content: $jc;
+  align-items: $ai;
+  gap: $gap;
+}
+
+@mixin title() {
+  width: 500px;
+  padding-bottom: 70px;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 20px; 
+  .textTitle {
+    color: $allocation-text-color;
+    font-size: 34px;
+  }
+  .spanTitle {
+    width: 6px;
+    height: 30px;
+    background-color: $primary-color;
+  }
+}

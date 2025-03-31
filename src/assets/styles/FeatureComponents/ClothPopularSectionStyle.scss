@@ -1,0 +1,51 @@
+@import '../var';
+@import '../mixin';
+
+.clothContainer {
+  @include bannersLayout($jc: start, $ai: start, $gap: 30px);
+  width: 282px;
+  height: 480px;
+  .clothItem {
+    display: flex;
+    justify-content: end;
+    align-items: start;
+    width: 282px;
+    height: 370px;
+    border-radius: $bdr-second;
+  }
+  .clothInfo {
+    width: 282px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    gap: 34px;
+    .clothInfoBrand {
+      @include bannersLayout($jc: center, $ai: start, $gap: 5px);
+      h4 {
+        font-size: 16px;
+        color: $allocation-text-color;
+      }
+      p {
+        font-size: 14px;
+        color: $text-color;
+      }
+    }
+    .btn {
+      @include bannersLayout($jc: center, $ai: center, $gap: 4px);
+      .saveLikeBtn {
+        width: 32px;
+        height: 32px;
+        border-radius: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .clothInfoPrice {
+        width: 82px;
+        height: 36px;
+        border-radius: 8px;
+        color: $allocation-text-color;
+      }
+    }
+  }
+}

@@ -1,0 +1,31 @@
+@import '../var';
+@import '../mixin';
+
+.banner {
+  width: 605px;
+  height: 356px;
+  @include bannersLayout($jc: center, $ai: start, $gap: 25px);
+  border-radius: $bdr-first;
+  padding-left: 30px;
+  span {
+    font-size: 18px;
+    color: $white;
+  }
+  .bannerInfo {
+    @include bannersLayout($jc: center, $ai: start, $gap: 10px);
+    h1 {
+      font-size: 34px;
+      color: $white;
+    }
+    span {
+      font-size: 16px;
+      color: $white;
+    }
+  }
+  a {
+    font-size: 20px;
+    color: $white;
+    text-decoration: underline;
+    margin-top: 15px;
+  }
+}

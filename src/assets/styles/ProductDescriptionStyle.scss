@@ -1,0 +1,120 @@
+@import './var';
+@import './mixin';
+
+.similarProducts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: start;
+  gap: 70px;
+  .title {
+    width: 500px;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 20px;
+    .spanTitle {
+      display: block;
+      width: 6px;
+      height: 30px;
+      background-color: #8A33FD;
+    }
+    .textTitle {
+      color: #3C4242;
+      font-size: 34px;    
+    }
+  }
+  .description {
+    width: 1240px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 96px;
+    .descriptionContainer {
+      @include bannersLayout($jc: center, $ai: start, $gap: 30px);
+      .textDescriptionContainer {
+        @include bannersLayout($jc: center, $ai: start, $gap: 30px);
+        .linkDescriptionContainer {
+          height: 40px;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: start;
+          gap: 16px;
+          a {
+            font-size: 18px;
+            color: $text-color;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            span {
+              width: 20px;
+              height: 20px;
+              font-size: 10px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            span.firstSpanItem {
+              background-color: $primary-color;
+              color: $white;
+            }
+            span.secondSpanItem {
+              background-color: $allocation-text-color;
+              color: $white;
+            }
+          }
+          a.active {
+            color: $allocation-text-color;
+            text-decoration: underline;
+          }
+        }
+        .infoDescriptionContainer {
+          p {
+            text-align: left;
+            font-size: 16px;
+            color: $text-color;
+          }
+        }
+      }
+      .tableDescriptionContainer {
+        background-color: $bg-color;
+        border-radius: $bdr-second;
+        padding: 10px;
+        article {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: start;
+          gap: 45px;
+          section {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            .tableInfo {
+              display: flex;
+              flex-direction: column;
+              justify-content: start;
+              align-items: center;
+              gap: 12px;
+              font-size: 16px;
+              color: $allocation-text-color;
+              span {
+                font-size: 16px;
+                color: $text-color;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  .videoContainer {
+    width: 532px;
+    height: 328px;
+    border-radius: $bdr-second;
+  }
+}

@@ -1,0 +1,21 @@
+@import '../var';
+@import '../mixin';
+
+.inputSearch {
+  width: 266px;
+  height: 44px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  color: $text-color;
+  background-color: $third-color;
+  padding: 0 20px;
+  input {
+    background-color: inherit;
+    font-size: 16px;
+    &::placeholder {
+      color: $allocation-text-color;
+    }
+  }
+}

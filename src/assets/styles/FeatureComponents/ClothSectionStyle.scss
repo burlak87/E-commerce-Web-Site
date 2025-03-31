@@ -1,0 +1,34 @@
+@import '../var';
+@import '../mixin';
+
+.categoriesBox {
+  @include bannersLayout($jc: center, $ai: start, $gap: 16px);
+  width: 270px;
+  height: 450px;
+  .imgCategories {
+    border-radius: $bdr-first;
+    width: 270px;
+    height: 390px;
+  }
+  .categoriesInfo {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    .infoLink {
+      @include bannersLayout($jc: space-around, $ai: start, $gap: 4px);
+      h4 {
+        font-size: 18px;
+        color: $allocation-text-color;
+      }
+      span {
+        font-size: 14px;
+        color: $text-color;
+        text-decoration: underline;
+      }
+    }
+    i {
+      color: $text-color;
+    }
+  }
+  
+}

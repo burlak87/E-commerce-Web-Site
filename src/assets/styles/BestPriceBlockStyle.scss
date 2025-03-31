@@ -1,0 +1,43 @@
+@import './var';
+@import './mixin';
+
+.bestPrice {
+  .title {
+    @include title();
+  }
+  .bestPriceContainer {
+    width: 1240px;
+    .bestPriceBlock {
+      width: 1200px;
+      background-color: $third-color;
+      border-radius: $bdr-first;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px;
+      .bestPriceName {
+        @include bannersLayout($jc: center, $ai: start, $gap: 20px);
+        h5 {
+          font-size: 24px;
+          color: $allocation-text-color;
+        }
+        p {
+          font-size: 24px;
+          color: $text-color;
+        }
+      }
+      .bestPriceSum {
+        @include bannersLayout($jc: center, $ai: center, $gap: 20px);
+        h5 {
+          font-size: 24px;
+          color: $allocation-text-color;
+        }
+        p {
+          font-size: 24px;
+          color: $text-color;
+        }
+      }
+    }
+  }
+}

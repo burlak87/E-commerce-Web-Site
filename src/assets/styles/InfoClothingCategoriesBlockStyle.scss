@@ -1,0 +1,20 @@
+@import './var';
+@import './mixin';
+
+.infoClothingCategories {
+  .title {
+    @include title();
+  }
+  .infoClothingText {
+    width: 1240px;
+    @include bannersLayout($jc: center, $ai: start, $gap: 16px);
+    .infoClothingSpan {
+      font-size: 20px;
+      color: $icon-color;
+    }
+    .infoClothingParagraph {
+      font-size: 20px;
+      color: $text-color;
+    }
+  }
+}

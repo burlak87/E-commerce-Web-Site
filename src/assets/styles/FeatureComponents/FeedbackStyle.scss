@@ -1,0 +1,44 @@
+@import '../var';
+@import '../mixin';
+
+.feedback {
+  width: 400px;
+  height: 292px;
+  border-radius: $bdr-first;
+  border: $bd;
+  @include bannersLayout($jc: start, $ai: start, $gap: 20px);
+  padding: 20px;
+  .writerInfo {
+    width: 360px;
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+    img {
+      width: 58px;
+      height: 58px;
+    }
+    .stars {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 4px;
+      img {
+        width: 23px;
+        height: 23px;
+        color: $alternative-secondary-color;
+      }
+    }
+  }
+  h3 {
+    font-size: 22px;
+    color: $allocation-text-color;
+  }
+  span {
+    font-size: 14px;
+    color: $text-color;
+  }
+  p {
+    font-size: 14px;
+    color: $text-color;
+  }
+}

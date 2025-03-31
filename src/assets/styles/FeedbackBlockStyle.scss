@@ -1,0 +1,15 @@
+@import './var';
+@import './mixin';
+
+.feedbackBlock {
+  @include bannersLayout($jc: center, $ai: start, $gap: 70px);
+  .title {
+    @include title();
+  }
+  .containerFeedback {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 24px;  
+  }
+}

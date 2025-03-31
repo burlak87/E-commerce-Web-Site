@@ -1,0 +1,44 @@
+@import './var';
+@import './mixin';
+
+.header {
+  height: 108px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 76px;
+  .logo {
+    margin-left: 12px;
+  }
+  .links {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 40px;
+    .link {
+      font-size: 22px;
+      color: $text-color;
+    }
+    .link.active {
+      color: $allocation-text-color;
+    }
+  }
+  .iconsButton {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    .btn {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 44px;
+      height: 44px;
+      border-radius: 8px;
+      background-color: $third-color;
+      i {
+        color: $text-color;
+      }
+    }
+  }
+}

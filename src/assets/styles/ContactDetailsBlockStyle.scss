@@ -1,0 +1,87 @@
+@import './var';
+@import './mixin';
+
+.contactDetails {
+  width: 700px;
+  @include bannersLayout($jc: center, $ai: start, $gap: 24px);
+  h2, h3 {
+    font-weight: bold;
+    font-size: 22px;
+    color: $allocation-text-color;
+  }
+  .contact-details, .address-list {
+    margin-bottom: 20px;
+  }
+  .detail {
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    section {
+      @include bannersLayout($jc: start, $ai: start, $gap: 10px);
+      span {
+        color: $text-color;
+        font-size: 18px;
+      }
+      .detail-value {
+        color: $allocation-text-color;
+      }
+    }
+    button {
+      background-color: transparent;
+      color: $allocation-text-color;
+      border: none;
+      cursor: pointer;
+    }
+  }
+  .addressTitle {
+    width: 800px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .address-list {
+    display: flex;
+    flex-wrap: wrap;
+    .address {
+      border: $bd;
+      border-radius: $bdr-first;
+      padding: 10px;
+      margin: 10px;
+      flex: 1 0 45%; 
+      gap: 20px;
+      .default {
+        display: flex;
+        justify-content: space-between;
+        button {
+          margin-top: 15px;
+          background-color: inherit;
+          border: $bd;
+          border-radius: $bdr-first;
+          color: $text-color;
+          padding: 5px;
+          cursor: default;
+        }
+      }
+      .address-actions {
+        display: flex;
+        justify-content: space-between;
+        button {
+          margin-top: 5px;
+          background-color: inherit;
+          color: $allocation-text-color;
+        }
+      }
+    }
+  }
+  .add-address {
+    font-size: 18px;
+    background-color: $white;
+    color: $allocation-text-color;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
+  }
+}

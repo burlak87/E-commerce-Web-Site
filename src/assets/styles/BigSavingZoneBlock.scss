@@ -1,0 +1,31 @@
+@import './var';
+@import './mixin';
+
+.bigSavingZone {
+  width: 1220px;
+  @include bannersLayout($jc: center, $ai: start, $gap: 70px);
+  .title {
+    @include title();
+    border-bottom: 0px;
+  }
+  .containerBigSavingZone {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    .containerBigSavingZoneFirst {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+    .containerBigSavingZoneSecond {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 20px;
+    }
+
+  }
+}

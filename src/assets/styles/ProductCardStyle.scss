@@ -1,0 +1,222 @@
+@import './var';
+@import './mixin';
+
+.productCard {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aside {
+    width: 214px;
+    @include bannersLayout($jc: end, $ai: center, $gap: 16px);
+    .containerClothImage {
+      width: 76px;
+      height: 76px;
+      img {
+        width: 68px;
+        height: 68px;
+      }
+    }
+    .containerClothImage.active {
+      border: $bd-allocation;
+      border-radius: $bdr-second;
+    }
+    .containerArrow {
+      height: 56px;
+      @include bannersLayout($jc: center, $ai: center, $gap: 12px);
+      button {
+        width: 21px;
+        height: 21px;
+        border-radius: 50px;
+        img {
+          width: 21px;
+          height: 21px;
+        }
+      }
+    }
+  }
+  img {
+    width: 520px;
+    height: 785px;
+  }
+  section {
+    margin-left: 35px;
+    @include bannersLayout($jc: center, $ai: start, $gap: 35px);
+    .clothPath {
+      font-size: 18px;
+      color: $text-color;
+    }
+    .clothName {
+      font-weight: bold;
+      font-size: 34px;
+      color: $icon-color;
+    }
+    .clothGrade {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 28px;
+      .clothStar {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        img {
+          width: 22px;
+          height: 22px;
+        }
+        p {
+          font-size: 18px;
+          color: $text-color;
+        }
+      }
+      .clothComment {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        img {
+          width: 20px;
+          height: 18px;
+        }
+        p {
+          font-size: 18px; 
+          color: $text-color;
+        }
+      }
+    }
+    .clothParam {
+      @include bannersLayout($jc: center, $ai: start, $gap: 25px);
+      h3 {
+        font-weight: bold;
+        font-size: 18px;
+        color: $icon-color;
+      }
+      .clothDimensions {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        button {
+          width: 38px;
+          height: 38px;
+          border-radius: $bdr-second;
+          border: $bd;
+          background-color: $white;
+          color: $text-color;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        button.active {
+          background-color: $allocation-text-color;
+          color: $white;
+        }
+      }
+    }
+    .clothColor {
+      @include bannersLayout($jc: center, $ai: start, $gap: 25px);
+      h3 {
+        font-weight: bold;
+        font-size: 18px;
+        color: $icon-color;
+      }
+      .clothSelectColor {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+        button {
+          width: 30px;
+          height: 30px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 50px;
+          span {
+            width: 22px;
+            height: 22px;
+            border-radius: 50px;
+            background-color: $allocation-text-color;
+          }
+        }
+        button.active {
+          border: $bd-allocation;
+        }
+      }
+    }
+    .clothAddToCart {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+      .addToCart {
+        width: 200px;
+        height: 46px;
+        border-radius: $bdr-first;
+        background-color: $primary-color;
+        color: $white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 15px;
+        img {
+          width: 15px;
+          height: 15px;
+        }
+      }
+      .price {
+        width: 138px;
+        height: 46px;
+        background-color: $white;
+        border: $bd-allocation;
+        border-radius: $bdr-first;
+        color: $allocation-text-color;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    }
+    .clothInfo {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      gap: 95px;
+      flex-wrap: wrap;
+      .clothInfoContainer {
+        display: flex;
+        flex-direction: column;
+        justify-content: start;
+        align-items: start;
+        gap: 20px;
+        article {
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+          align-items: center;
+          gap: 15px;
+          span {
+            width: 44px;
+            height: 44px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50px;
+            background-color: $bg-color;
+            img {
+              width: 15px;
+              height: 15px;
+            }
+          }
+          p {
+            font-size: 18px;
+            color: $allocation-text-color;
+          }
+        }
+      }
+    }
+  }
+}

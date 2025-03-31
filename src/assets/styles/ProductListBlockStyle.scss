@@ -1,0 +1,48 @@
+@import './var';
+@import './mixin';
+
+.productList {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+  gap: 40px;
+  .filter {
+    width: 300px;
+  }
+  .productListContainer {
+    @include bannersLayout($jc: center, $ai: center, $gap: 40px);
+    .productListTitle {
+      width: 900px;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+      h3 {
+        font-size: 22px;
+        color: $allocation-text-color;
+      }
+      section {
+        width: 250px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        button {
+          font-size: 22px;
+          color: $allocation-text-color;
+          background-color: inherit;
+        }
+        button.active {
+          color: $primary-color;
+        }
+      }
+    }
+    .productListItem {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      gap: 25px;
+    }
+  }
+}

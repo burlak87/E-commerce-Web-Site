@@ -1,0 +1,76 @@
+@import './var';
+@import './mixin';
+
+.shopping-cart {
+  width: 1240px;
+  @include bannersLayout($jc: center, $ai: start, $gap: 20px);
+  h2 {
+    text-align: center;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse; 
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: $bd;
+    }
+    img {
+      width: 105px;
+      margin-right: 10px;
+    }
+    .checkout-btn {
+      background-color: $primary-color;
+      color: $white;
+      padding: 10px 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: $bdr-first;
+    }
+  }
+  .shoppingPrice {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .discount-codes {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+      gap: 20px;
+      margin: 20px 0;
+      input {
+        width: 70%;
+      }
+      button {
+        background-color: $primary-color;
+        color: $white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: $bdr-first;
+      }
+    }
+    .totals {
+      width: 50%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      p {
+        font-weight: bold;
+      }
+      button {
+        background-color: $primary-color;
+        color: $white;
+        padding: 10px;
+        border: none;
+        cursor: pointer;
+        border-radius: $bdr-first;
+      }
+    }
+  }
+  
+}

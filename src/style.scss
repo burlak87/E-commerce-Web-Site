@@ -1,0 +1,60 @@
+@import './assets/styles/var';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    outline: none;
+    border: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-padding-top: 9rem;
+    scroll-behavior: smooth;
+    &::-webkit-scrollbar {
+        width: .8rem;
+    }
+    &::-webkit-scrollbar-track {
+        background: transparent;
+    }
+    &::-webkit-scrollbar-thumb {
+        background-color: $primary-color;
+        border-radius: 5rem;
+    }
+}
+
+body {
+    background-color: $white;
+}
+
+header, main, footer {
+  padding: 0 100px;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 95px;
+}
+
+main.profile {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: start;
+    gap: 70px;
+}
+
+main.sign {
+    display: flex;
+    flex-direction: row;
+    justify-content: start;
+    align-items: start;
+}

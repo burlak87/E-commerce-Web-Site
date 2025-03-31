@@ -1,0 +1,39 @@
+@import '../var';
+@import '../mixin';
+
+.savingBanner {
+  width: 400px;
+  height: 392px;
+  border-radius: $bdr-first;
+  .savingInfo {
+    width: 155px;
+    height: 320px;
+    text-align: right;
+    @include bannersLayout($jc: center, $ai: end, $gap: 10px );
+    .limitedBtn {
+      width: 104px;
+      height: 34px;
+      border-radius: 4px;
+      font-size: 12px;
+      color: $white;
+      background-color: $allocation-text-color;
+    }
+    h2 {
+      font-size: 28px;
+      color: $white;
+    }
+    span {
+      font-size: 14px;
+      color: $white;
+    }
+    p {
+      font-size: 18px;
+      color: $white;
+      margin-bottom: 20px;
+    }
+    i {
+      color: $white;
+      margin-bottom: 30px;
+    }
+  } 
+}

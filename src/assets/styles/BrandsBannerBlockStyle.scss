@@ -1,0 +1,33 @@
+@import './var';
+@import './mixin';
+.brandsBanner {
+  @include bannersLayout($jc: center, $ai: center, $gap: 26px);
+  border-radius: $bdr-second;
+  width: 1230px;
+  height: 360px;
+  background-color: $bg-grey-color;
+  h2 {
+    font-size: 50px;
+    color: $white;
+  }
+  p {
+    font-size: 22px;
+    color: $white;
+    span {
+      font-weight: bold;
+      color: $secondary-color;
+    }
+  }
+  .brandsImgContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    margin-top: 40px;
+    img {
+      width: 180px;
+      height: 86px;
+      border-radius: $bdr-second;
+    }
+  }
+}

@@ -1,0 +1,101 @@
+@import './var';
+@import './mixin';
+
+.footer {
+  width: 1440px;
+  height: 580px;
+  background-color: $bg-grey-color;
+  padding-left: 140px;
+  padding-top: 80px;
+  margin-top: 100px;
+  .containerInfo {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 80px;
+    .footerInfo {
+      @include bannersLayout($jc: center, $ai: start, $gap: 5px);
+      .footerInfoTitle {
+        font-size: 28px;
+        color: $white;
+        margin-bottom: 10px;
+      }
+      a {
+        font-size: 18px;
+        color: $white;
+      }
+    }
+  }
+  .containerLinks {
+    width: 1220px;
+    @include bannersLayout($jc: center, $ai: center, $gap: 28px);
+    .containerSocialLinks {
+      width: 1220px;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      padding-bottom: 42px;
+      border-bottom: 1px solid $bg-color;
+      .socialLinks {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        a {
+          width: 37px;
+          height: 37px;
+          border-radius: $bdr-first;
+          background-color: $white;
+          i {
+            color: $icon-color;
+          }
+        }
+      }
+      .downloadApp {
+        @include bannersLayout($jc: center, $ai: start, $gap: 20px);
+        h5 {
+          font-size: 28px;
+          color: $white;
+        }
+        .downloadAppImg {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 20px;
+          img {
+            width: 154px;
+            height: 50px;
+            border-radius: $bdr-second;
+          }
+        }
+      }
+    }
+    .containerPopular {
+      width: 1220px;
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      padding-bottom: 20px;
+      border-bottom: 1px solid $bg-color;
+      h5 {
+        font-size: 28px;
+        color: $white;
+      }
+      i {
+        width: 18px;
+        height: 18px;
+        color: $white;
+      }
+    }
+  }
+  .containerCopyright {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    p {
+      font-size: 18px;
+      color: $white;
+    }
+  }
+}

@@ -1,0 +1,63 @@
+@import './var';
+@import './mixin';
+
+.wishlist {
+  width: 700px;
+  padding: 20px;
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: $allocation-text-color;
+  }
+  .wishlist-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid $bg-grey-color;
+    &:last-child {
+      border-bottom: none;
+    }
+    .remove-item {
+      background: none;
+      border: none;
+      font-size: 18px;
+      cursor: pointer;
+      color: $allocation-text-color;
+    }
+    .item-img {
+      margin-left: 15px;
+      width: 110px;
+      height: 110px;
+      border-radius: $bdr-first;
+    }
+    .item-details {
+      flex-grow: 1;
+      margin-left: 15px;
+      .item-name {
+        font-weight: bold;
+        font-size: 18px;
+      }
+      .item-color,
+      .item-quantity,
+      .item-price {
+        font-size: 14px;
+        color: $allocation-text-color;
+      }
+    }
+    .add-to-cart {
+      padding: 10px 15px;
+      background-color: $primary-color;
+      color: $white;
+      border: none;
+      border-radius: $bdr-first;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      &:hover {
+        background-color: $white;
+        color: $primary-color;
+        border: $bd;
+      }
+    }
+  }
+}

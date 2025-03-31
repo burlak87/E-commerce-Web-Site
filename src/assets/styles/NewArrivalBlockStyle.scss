@@ -1,0 +1,17 @@
+@import './var';
+@import './mixin';
+
+.newArrival {
+  width: 1220px;
+  @include bannersLayout($jc: center, $ai: start, $gap: 70px);
+  .title {
+    @include title();
+    border-bottom: 0px;
+  }
+  .containerNewArrival {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 38px;
+  }
+}

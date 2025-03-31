@@ -1,0 +1,32 @@
+@import '../var';
+@import '../mixin';
+
+.savingBanner {
+  width: 610px;
+  height: 392px;
+  border-radius: $bdr-first;
+  padding-right: 98px;
+  .savingInfo {
+    width: 165px;
+    height: 320px;
+    text-align: left;
+    @include bannersLayout($jc: center, $ai: start, $gap: 10px );
+    h2 {
+      font-size: 28px;
+      color: $icon-color;
+    }
+    span {
+      font-size: 14px;
+      color: $icon-color;
+    }
+    p {
+      font-size: 18px;
+      color: $icon-color;
+      margin-bottom: 20px;
+    }
+    i {
+      color: $icon-color;
+      margin-bottom: 30px;
+    }
+  }
+}

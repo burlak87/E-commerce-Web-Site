@@ -1,0 +1,18 @@
+@import './var';
+@import './mixin';
+
+.categoriesBlock {
+  width: 1240px;
+  @include bannersLayout($jc: center, $ai: start, $gap: 70px);
+  .title {
+    @include title();
+    padding-bottom: 0px;
+  }
+  .containerCategories {
+    display: flex;
+    justify-content: center;
+    align-items: start;
+    gap: 50px;
+    flex-wrap: wrap;
+  }
+}

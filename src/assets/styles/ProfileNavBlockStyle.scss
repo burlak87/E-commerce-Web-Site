@@ -1,0 +1,52 @@
+@import './var';
+@import './mixin';
+
+.profileNav {
+  width: 400px;
+  @include bannersLayout($jc: center, $ai: start, $gap: 10px);
+  .profilePath {
+    p {
+      font-size: 18px;
+      color: $text-color;
+    }
+  }
+  .profileTitle {
+    @include bannersLayout($jc: start, $ai: start, $gap: 10px);
+    .title {
+      @include title();
+      padding-bottom: 10px;
+    }
+    .titleHello {
+      p {
+        font-size: 14px;
+        color: $text-color;
+      }
+    }
+  }
+  .profileNav {
+    width: 220px;
+    @include bannersLayout($jc: start, $ai: center, $gap: 2px);
+    .menu {
+      width: 120px;
+      list-style-type: none;
+      padding: 0;
+      .menu-item {
+        width: 120px;
+        padding: 10px 15px; 
+        color: $text-color; 
+        cursor: pointer; 
+        border-radius: 4px; 
+        display: flex; 
+        justify-content: start;
+        align-items: center; 
+        img {
+          padding: 8px;
+        }
+      }
+      .menu-item.active {
+        background-color: $bg-grey-color; 
+        font-weight: bold;
+      }
+    }
+  }
+}

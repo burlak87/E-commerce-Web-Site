@@ -1,0 +1,47 @@
+@import './var';
+@import './mixin';
+
+.wishlist-empty {
+  width: 700px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  background-color: none;
+  border-radius: $bdr-first;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  .icon {
+    margin-bottom: 1.5rem;
+    img {
+      width: 170px;
+      height: 170px;
+    }
+  }
+  h3 {
+    margin: 1rem 0;
+    font-size: 24px;
+    color: $allocation-text-color;
+  }
+  p {
+    margin-bottom: 2rem;
+    font-size: 16px;
+    color: $allocation-text-color;
+  }
+  button {
+    padding: 0.75rem 1.5rem;
+    font-size: 16px;
+    color: $white;
+    background-color: $primary-color;
+    border: none;
+    border-radius: $bdr-first;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    &:hover {
+      background-color: $white;
+      color: $primary-color;
+      border: $bd;
+    }
+  }
+}

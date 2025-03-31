@@ -1,0 +1,77 @@
+@import './var';
+@import './mixin';
+
+.img-signUp {
+  width: 50%;
+}
+.formSignUp {
+  width: 50%;
+  padding: 20px;
+  background-color: $white;
+  border-radius: $bdr-first;
+  h2 {
+    font-size: 34px;
+    font-weight: bold;
+    color: $allocation-text-color;
+  }
+  .input-group {
+    margin-bottom: 15px;
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input {
+      width: 100%;
+      padding: 10px;
+      border: $bd;
+      border-radius: $bdr-first;
+      &:focus {
+        border-color: $primary-color;
+        outline: none;
+      }
+    }
+    .error-message {
+      color: $red;
+      font-size: 18px;
+    }
+    .password-hint {
+      font-size: 18px;
+      color: $text-color;
+    }
+  }
+  .checkbox-group {
+    margin-bottom: 10px;
+    input {
+      margin-right: 10px;
+    }
+    a {
+      color: $primary-color;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .submit-button {
+    width: 100%;
+    padding: 10px;
+    background-color: $primary-color;
+    color: $white;
+    border: none;
+    border-radius: $bdr-first;
+    cursor: pointer;
+    &:hover {
+      background-color: $white;
+      border: $bd;
+      color: $primary-color;
+    }
+  }
+  .login-link {
+    text-align: center;
+    margin-top: 10px;
+    a {
+      color: $primary-color;
+      text-decoration: none;
+    }
+  }
+}

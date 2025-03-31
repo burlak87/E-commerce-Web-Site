@@ -1,0 +1,79 @@
+@import './var';
+@import './mixin';
+
+.img-signIn {
+  width: 50%;
+}
+.formSignIn {
+  width: 50%;
+  padding: 20px;
+  background-color: $white;
+  border-radius: $bdr-first;
+  h2 {
+    font-size: 34px;
+    font-weight: bold;
+    color: $allocation-text-color;
+  }
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    .input-group {
+      margin-bottom: 20px;
+      label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+      }
+      input {
+        width: 100%;
+        padding: 10px;
+        border: $bd;
+        border-radius: $bdr-second;
+      }
+    }
+    .btn-group {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: start;
+      margin-bottom: 10px;
+      gap: 20px;
+      button {
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: $primary-color;
+        font-weight: bold;
+      }
+    }
+    .forgot-password {
+      display: block;
+      margin-top: 5px;
+      text-align: right;
+      color: $primary-color;
+      text-decoration: underline;
+    }
+    .sign-in-button {
+      padding: 10px;
+      background-color: $primary-color;
+      color: $white;
+      border: none;
+      border-radius: $bdr-second;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.3s;
+      &:hover {
+        background-color: $white;
+        border: $bd;
+        color: $primary-color;
+      }
+    }
+    .signup-prompt {
+      text-align: center;
+      margin-top: 20px;
+      a {
+        color: $primary-color;
+      }
+    }
+  }
+}

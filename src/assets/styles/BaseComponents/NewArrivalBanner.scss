@@ -1,0 +1,19 @@
+@import '../var';
+@import '../mixin';
+
+.NewArrivalBanner {
+  width: 260px;
+  height: 320px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: start;
+  gap: 32px;
+  img {
+    border-radius: $bdr-second;
+  }
+  h4 {
+    color: $allocation-text-color;
+    font-size: 20px;
+  }
+}

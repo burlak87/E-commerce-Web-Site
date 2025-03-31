@@ -1,0 +1,73 @@
+@import './var';
+@import './mixin';
+
+.my-orders {
+  width: 700px;
+  padding: 20px;
+  background-color: $third-color;
+  border-radius: $bdr-first;
+  h2 {
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  .tabs {
+    display: flex;
+    margin-bottom: 20px;
+    .tab {
+      flex: 1;
+      padding: 10px;
+      background: $third-color;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+      &.active {
+        background: $primary-color;
+        color: $white;
+      }
+    }
+  }
+  .order-list {
+    display: flex;
+    flex-direction: column;
+    .order-item {
+      width: 660px;
+      height: 210px;
+      background: $white;
+      padding: 15px;
+      margin-bottom: 15px;
+      border-radius: $bdr-first;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      @include bannersLayout($jc: start, $ai: space-between, $gap: 20px);
+      section {
+        display: flex;
+        justify-content: space-between;
+        align-items: end;
+        .product {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 10px;
+          .product-info {
+            @include bannersLayout($jc: center, $ai: start, $gap: 2px);
+            margin-left: 4px;
+          }
+        }
+      }
+      p {
+        margin: 5px 0;
+      }
+      .view-detail {
+        background: $primary-color;
+        color: $white;
+        border: none;
+        padding: 10px;
+        border-radius: $bdr-second;
+        cursor: pointer;
+        transition: background 0.3s;
+        &:hover {
+          background: $allocation-text-color;
+        }
+      }
+    }
+  }
+}
