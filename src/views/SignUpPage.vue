@@ -42,7 +42,7 @@
           <input type="checkbox" id="newsletter" v-model="subscribeNewsletter" />
           <label for="newsletter">Subscribe to our monthly newsletter</label>
         </div>
-        <button type="submit" class="submit-button">Sign Up</button>
+        <button type="submit" class="submit-button" @click.prevent="$router.push({ name: 'MyProfile' })">Sign Up</button>
         <p class="login-link">
           Already have an account? <a href="#">Log in</a>
         </p>

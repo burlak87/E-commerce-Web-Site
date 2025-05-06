@@ -25,6 +25,19 @@ const routes = [
 	{ path: '/:catchAll(.*)', component: ErrorPage },
 ]
 
+// работают 
+// Home
+// productlist
+// profile
+// orderdetails
+// addtocart
+// signUp
+// signIn
+
+// работают но только в строке
+// productdetail
+
+
 const router = createRouter({
 	history: createWebHashHistory(),
 	routes,

@@ -1,6 +1,42 @@
 <script setup>
   import Filters from './FiltersBlock.vue';
   import ClothPopularSection from './Feature/ClothPopularSection.vue';
+
+  import { ref, onMounted } from 'vue';
+
+  const products = ref([]);
+  const loading = ref(false);
+  const error = ref(null);
+
+  async function getProducts() {
+    try {
+      const response = await fetch('http://localhost:8000/products');
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      return data;
+    } catch (err) {
+      console.error('Error fetching products:', err);
+      throw err;
+    }
+  }
+
+  async function loadProducts() {
+    loading.value = true;
+    error.value = null;
+    try {
+      products.value = await getProducts();
+    } catch (err) {
+      error.value = err.message || 'Unknown error';
+    } finally {
+      loading.value = false;
+    }
+  }
+
+  onMounted(() => {
+    loadProducts();
+  });
 </script>
 
 <template>

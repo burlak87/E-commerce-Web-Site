@@ -1,9 +1,7 @@
 <script setup>
-  import ProfileNav from '../components/ProfileNavBlock.vue';
   import ContactDetails from '../components/ContactDetails.vue';
   import AddressInfo from '../components/AddressInfo.vue';
   import Wishlist from '../components/Wishlist.vue';
-  // import EmptyWishlist from '../components/EmptyWishlist.vue';
   import MyOrder from '../components/MyOrder.vue';
 
   import { ref, computed } from "vue";
@@ -36,8 +34,8 @@
       </section>
       <section class="profileNav">
         <ul class="menu">
-          <li class="menu-item" @click.prevent="activePage = 6"> <img src="../assets/images/my orders.png" alt=""> <p>My orders</p></li>
-          <li class="menu-item active" @click.prevent="activePage = 3"> <img src="../assets/images/heart.png" alt=""> <p>Wishlist</p></li>
+          <li class="menu-item" @click.prevent="activePage = 4"> <img src="../assets/images/my orders.png" alt=""> <p>My orders</p></li>
+          <li class="menu-item" @click.prevent="activePage = 3"> <img src="../assets/images/heart.png" alt=""> <p>Wishlist</p></li>
           <li class="menu-item" @click.prevent="activePage = 1"> <img src="../assets/images/user.png" alt=""> <p>My info</p></li>
           <li class="menu-item" @click.prevent="activePage = 2"> <img src="../assets/images/sign out.png" alt=""> <p>Add address</p></li>
         </ul>
@@ -46,9 +44,7 @@
     <ContactDetails v-if="activePage === 1" />
     <AddressInfo v-else-if="activePage === 2" />
     <Wishlist v-else-if="activePage === 3" />
-    <EmptyWishlist v-else-if="activePage === 4" />
-    <OrderDetails v-else-if="activePage === 5" />
-    <MyOrder v-else-if="activePage === 6" />
+    <MyOrder v-else-if="activePage === 4" />
   </main>
 </template>
 

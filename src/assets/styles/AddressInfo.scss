@@ -13,7 +13,7 @@
     margin-bottom: 20px;
   }
   .detail {
-    width: 800px;
+    width: 700px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -25,7 +25,7 @@
         font-size: 18px;
       }
       input {
-        width: 380px;
+        width: 300px;
         height: 54px;
         background-color: $bg-color;
         border-radius: $bdr-first;
@@ -42,7 +42,7 @@
         font-size: 18px;
       }
       textarea {
-        width: 800px;
+        width: 700px;
         height: 150px;
         background-color: $bg-color;
         border-radius: $bdr-first;

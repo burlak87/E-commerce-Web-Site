@@ -1,0 +1,631 @@
+fetch async/await - 
+
+
+; Route::post('/registration', [UserController::class, 'store'])->name('create-user');
+async function registerUser (userData) {
+    try {
+        const response = await fetch('http://localhost:8000/registration', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userData),
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error('Error registering user:', error);
+    }
+}
+
+<form id="registrationForm">
+    <input type="text" id="first_name" name="user.first_name" placeholder="First Name" required>
+    <input type="text" id="last_name" name="user.last_name" placeholder="Last Name" required>
+    <input type="text" id="phone" name="user.phone" placeholder="Phone" required>
+    <input type="email" id="email" name="user.email" placeholder="Email" required>
+    <input type="password" id="password" name="user.password" placeholder="Password" required minlength="8">
+    <button type="submit">Register</button>
+</form>
+
+document.getElementById('registrationForm').addEventListener('submit', async (event) => {
+    event.preventDefault(); // Предотвращаем отправку формы
+    const userData = {
+        first_name: document.getElementById('first_name').value,
+        last_name: document.getElementById('last_name').value,
+        phone: document.getElementById('phone').value,
+        email: document.getElementById('email').value,
+        password: document.getElementById('password').value,
+    };
+    const result = await registerUser (userData);
+    console.log(result);
+});
+
+; Route::post('/login', [UserController::class, 'login'])->name('login');
+async function loginUser (credentials) {
+    try {
+        const response = await fetch('http://localhost:8000/login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(credentials),
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error('Error logging in:', error);
+    }
+}
+
+<form id="loginForm">
+    <input type="email" id="login_email" name="user.email" placeholder="Email" required>
+    <input type="password" id="login_password" name="user.password" placeholder="Password" required>
+    <button type="submit">Login</button>
+</form>
+
+document.getElementById('loginForm').addEventListener('submit', async (event) => {
+    event.preventDefault(); // Предотвращаем отправку формы
+    const credentials = {
+        email: document.getElementById('login_email').value,
+        password: document.getElementById('login_password').value,
+    };
+    const result = await loginUser (credentials);
+    console.log(result);
+});
+
+; Route::post('/logout', [UserController::class, 'logout'])->name('logout');
+async function logoutUser () {
+    try {
+        const response = await fetch('http://localhost:8000/logout', {
+            method: 'POST',
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error('Error logging out:', error);
+    }
+}
+
+; Route::patch('/users/{id}', [UserController::class, 'update'])->name('update-user');
+async function updateUser (id, userData) {
+    try {
+        const response = await fetch(`http://localhost:8000/users/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(userData),
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error('Error updating user:', error);
+    }
+}
+
+<form id="updateUser Form">
+    <input type="text" id="update_first_name" name="user.first_name" placeholder="First Name">
+    <input type="text" id="update_last_name" name="user.last_name" placeholder="Last Name">
+    <input type="text" id="update_phone" name="user.phone" placeholder="Phone">
+    <input type="email" id="update_email" name="user.email" placeholder="Email">
+    <input type="password" id="update_password" name="user.password" placeholder="Password" minlength="8">
+    <button type="submit">Update</button>
+</form>
+
+document.getElementById('updateUser Form').addEventListener('submit', async (event) => {
+    event.preventDefault(); // Предотвращаем отправку формы
+    const userId = /* Получите ID пользователя, которого нужно обновить */;
+    const userData = {
+        first_name: document.getElementById('update_first_name').value || undefined,
+        last_name: document.getElementById('update_last_name').value || undefined,
+        phone: document.getElementById('update_phone').value || undefined,
+        email: document.getElementById('update_email').value || undefined,
+        password: document.getElementById('update_password').value || undefined,
+    };
+    const result = await updateUser (userId, userData);
+    console.log(result);
+});
+
+; Route::post('/addresses', [AddressController::class, 'store'])->name('create-address');
+async function createAddress(addressData) {
+    try {
+        const response = await fetch('http://localhost:8000/addresses', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(addressData),
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error('Error creating address:', error);
+    }
+}
+
+<form id="addressForm">
+    <input type="text" id="country" name="addresses.country" placeholder="Country" required>
+    <input type="text" id="company" name="addresses.company" placeholder="Company">
+    <input type="text" id="street" name="addresses.street" placeholder="Street" required>
+    <input type="number" id="house" name="addresses.house" placeholder="House" required>
+    <input type="number" id="apartment" name="addresses.apartment" placeholder="Apartment">
+    <input type="text" id="city" name="addresses.city" placeholder="City" required>
+    <input type="text" id="state" name="addresses.state" placeholder="State">
+    <input type="number" id="postal_code" name="addresses.postal_code" placeholder="Postal Code" required>
+    <textarea id="delivery_instruction" name="addresses.delivery_instruction" placeholder="Delivery Instruction" required></textarea>
+    <button type="submit">Create Address</button>
+</form>
+
+document.getElementById('addressForm').addEventListener('submit', async (event) => {
+    event.preventDefault(); // Предотвращаем отправку формы
+    const addressData = {
+        country: document.getElementById('country').value,
+        company: document.getElementById('company').value || undefined,
+        street: document.getElementById('street').value,
+        house: parseInt(document.getElementById('house').value),
+        apartment: parseInt(document.getElementById('apartment').value) || undefined,
+        city: document.getElementById('city').value,
+        state: document.getElementById('state').value || undefined,
+        postal_code: parseInt(document.getElementById('postal_code').value),
+        delivery_instruction: document.getElementById('delivery_instruction').value,
+    };
+    const result = await createAddress(addressData);
+    console.log(result);
+});
+
+; Route::delete('/addresses/{address}', [AddressController::class, 'destroy'])->name('delete-address');
+async function deleteAddress(addressId) {
+    try {
+        const response = await fetch(`http://localhost:8000/addresses/${addressId}`, {
+            method: 'DELETE',
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error('Error deleting address:', error);
+    }
+}
+
+; Route::post('/reviews', [ReviewController::class, 'store'])->name('create-review');
+async function createReview(reviewData) {
+    try {
+        const response = await fetch('http://localhost:8000/reviews', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(reviewData),
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error('Error creating review:', error);
+    }
+}
+
+<form id="reviewForm">
+    <input type="number" id="product_id" name="product_id" placeholder="Product ID" required>
+    <input type="number" id="user_id" name="user_id" placeholder="User  ID" required>
+    <input type="number" id="rating" name="rating" placeholder="Rating (1-100)" required min="1" max="100">
+    <textarea id="comment" name="comment" placeholder="Comment" required maxlength="2048"></textarea>
+    <button type="submit">Create Review</button>
+</form>
+
+document.getElementById('reviewForm').addEventListener('submit', async (event) => {
+    event.preventDefault(); // Предотвращаем отправку формы
+    const reviewData = {
+        product_id: parseInt(document.getElementById('product_id').value),
+        user_id: parseInt(document.getElementById('user_id').value),
+        rating: parseInt(document.getElementById('rating').value),
+        comment: document.getElementById('comment').value,
+    };
+    const result = await createReview(reviewData);
+    console.log(result);
+});
+
+; Route::delete('/reviews/{review}', [ReviewController::class, 'destroy'])->name('delete-review');
+async function deleteReview(reviewId) {
+    try {
+        const response = await fetch(`http://localhost:8000/reviews/${reviewId}`, {
+            method: 'DELETE',
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error('Error deleting review:', error);
+    }
+}
+
+; Route::post('/carts', [CartController::class, 'store'])->name('create-cart');
+async function createCart(cartData) {
+    try {
+        const response = await fetch('http://localhost:8000/carts', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(cartData),
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error('Error creating cart:', error);
+    }
+}
+
+<form id="cartForm">
+    <input type="number" id="total_amount" name="total_amount" placeholder="Total Amount" required>
+    <input type="number" id="user_id" name="user_id" placeholder="User  ID" required>
+    <button type="submit">Create Cart</button>
+</form>
+
+document.getElementById('cartForm').addEventListener('submit', async (event) => {
+    event.preventDefault(); // Предотвращаем отправку формы
+    const cartData = {
+        total_amount: parseInt(document.getElementById('total_amount').value),
+        user_id: parseInt(document.getElementById('user_id').value),
+    };
+    const result = await createCart(cartData);
+    console.log(result);
+});
+
+; Route::delete('/carts/{cart}', [CartController::class, 'destroy'])->name('delete-cart');
+async function deleteCart(cartId) {
+    try {
+        const response = await fetch(`http://localhost:8000/carts/${cartId}`, {
+            method: 'DELETE',
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error('Error deleting cart:', error);
+    }
+}
+
+; Route::post('/cart-items', [CartItemController::class, 'addCartItem'])->name('create-cartItem');
+async function addCartItem(cartItemData) {
+    try {
+        const response = await fetch('http://localhost:8000/cart-items', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(cartItemData),
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error('Error adding cart item:', error);
+    }
+}
+
+<form id="cartItemForm">
+    <input type="number" id="quantity" name="item.quantity" placeholder="Quantity" required>
+    <input type="number" id="cart_id" name="cart.id" placeholder="Cart ID" required>
+    <input type="number" id="product_id" name="product.id" placeholder="Product ID" required>
+    <button type="submit">Add to Cart</button>
+</form>
+
+document.getElementById('cartItemForm').addEventListener('submit', async (event) => {
+    event.preventDefault(); // Предотвращаем отправку формы
+    const cartItemData = {
+        quantity: parseInt(document.getElementById('quantity').value),
+        cart: {
+            id: parseInt(document.getElementById('cart_id').value),
+        },
+        product: {
+            id: parseInt(document.getElementById('product_id').value),
+        },
+    };
+    const result = await addCartItem(cartItemData);
+    console.log(result);
+});
+
+; Route::delete('/cart-items/{cartItem}', [CartItemController::class, 'removeCartItem'])->name('delete-cartItem');
+async function removeCartItem(cartItemId) {
+    try {
+        const response = await fetch(`http://localhost:8000/cart-items/${cartItemId}`, {
+            method: 'DELETE',
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error('Error removing cart item:', error);
+    }
+}
+
+; Route::post('/my-orders', [MyOrdersController::class, 'store'])->name('create-myOrder');
+async function createMyOrder(orderData) {
+    try {
+        const response = await fetch('http://localhost:8000/my-orders', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(orderData),
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error('Error creating my order:', error);
+    }
+}
+
+<form id="myOrderForm">
+    <input type="text" id="status" name="my-order.status" placeholder="Status" required>
+    <input type="text" id="number" name="my-order.number" placeholder="Order Number" required>
+    <input type="date" id="date" name="my-order.date" placeholder="Order Date" required>
+    <input type="date" id="estimated_date" name="my-order.estimated_date" placeholder="Estimated Date" required>
+    <input type="text" id="payment_method" name="my-order.payment_method" placeholder="Payment Method" required>
+    <input type="number" id="order_details_id" name="my-order.order_details_id" placeholder="Order Details ID" required>
+    <button type="submit">Create Order</button>
+</form>
+
+document.getElementById('myOrderForm').addEventListener('submit', async (event) => {
+    event.preventDefault(); // Предотвращаем отправку формы
+    const orderData = {
+        status: document.getElementById('status').value,
+        number: document.getElementById('number').value,
+        date: document.getElementById('date').value,
+        estimated_date: document.getElementById('estimated_date').value,
+        payment_method: document.getElementById('payment_method').value,
+        order_details_id: parseInt(document.getElementById('order_details_id').value),
+    };
+    const result = await createMyOrder(orderData);
+    console.log(result);
+});
+
+; Route::post('/order-details', [OrderDetailController::class, 'store'])->name('create-orderDetail');
+async function createOrderDetail(orderDetailData) {
+    try {
+        const response = await fetch('http://localhost:8000/order-details', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(orderDetailData),
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error('Error creating order detail:', error);
+    }
+}
+
+<form id="orderDetailForm">
+    <input type="number" id="total_amount" name="total_amount" placeholder="Total Amount" required>
+    <input type="number" id="address_id" name="address_id" placeholder="Address ID" required>
+    <button type="submit">Create Order Detail</button>
+</form>
+
+document.getElementById('orderDetailForm').addEventListener('submit', async (event) => {
+    event.preventDefault(); // Предотвращаем отправку формы
+    const orderDetailData = {
+        total_amount: parseInt(document.getElementById('total_amount').value),
+        address_id: parseInt(document.getElementById('address_id').value),
+    };
+    const result = await createOrderDetail(orderDetailData);
+    console.log(result);
+});
+
+; Route::post('/order-items', [OrderItemController::class, 'addOrderItem'])->name('create-orderItem');
+async function addOrderItem(orderItemData) {
+    try {
+        const response = await fetch('http://localhost:8000/order-items', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(orderItemData),
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error('Error adding order item:', error);
+    }
+}
+
+<form id="orderItemForm">
+    <input type="number" id="quantity" name="item.quantity" placeholder="Quantity" required>
+    <input type="number" id="orderdetail_id" name="orderdetail.id" placeholder="Order Detail ID" required>
+    <input type="number" id="product_id" name="product.id" placeholder="Product ID" required>
+    <button type="submit">Add Order Item</button>
+</form>
+
+document.getElementById('orderItemForm').addEventListener('submit', async (event) => {
+    event.preventDefault(); // Предотвращаем отправку формы
+    const orderItemData = {
+        quantity: parseInt(document.getElementById('quantity').value),
+        orderdetail: {
+            id: parseInt(document.getElementById('orderdetail_id').value),
+        },
+        product: {
+            id: parseInt(document.getElementById('product_id').value),
+        },
+    };
+    const result = await addOrderItem(orderItemData);
+    console.log(result);
+});
+
+; Route::post('/wishlists', [WishlistController::class, 'store'])->name('create-wishlist');
+async function createWishlist(wishlistData) {
+    try {
+        const response = await fetch('http://localhost:8000/wishlists', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(wishlistData),
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error('Error creating wishlist:', error);
+    }
+}
+
+<form id="wishlistForm">
+    <input type="number" id="total_amount" name="total_amount" placeholder="Total Amount" required>
+    <input type="number" id="user_id" name="user_id" placeholder="User  ID" required>
+    <button type="submit">Create Wishlist</button>
+</form>
+
+document.getElementById('wishlistForm').addEventListener('submit', async (event) => {
+    event.preventDefault(); // Предотвращаем отправку формы
+    const wishlistData = {
+        total_amount: parseInt(document.getElementById('total_amount').value),
+        user_id: parseInt(document.getElementById('user_id').value),
+    };
+    const result = await createWishlist(wishlistData);
+    console.log(result);
+});
+
+; Route::delete('/wishlists/{wishlist}', [WishlistController::class, 'destroy'])->name('delete-wishlist');
+async function deleteWishlist(wishlistId) {
+    try {
+        const response = await fetch(`http://localhost:8000/wishlists/${wishlistId}`, {
+            method: 'DELETE',
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error('Error deleting wishlist:', error);
+    }
+}
+
+; Route::post('/wishlist-items', [WishlistItemController::class, 'addWishlistItem'])->name('create-wishlistItem');
+async function addWishlistItem(wishlistItemData) {
+    try {
+        const response = await fetch('http://localhost:8000/wishlist-items', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(wishlistItemData),
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error('Error adding wishlist item:', error);
+    }
+}
+
+<form id="wishlistItemForm">
+    <input type="number" id="quantity" name="item.quantity" placeholder="Quantity" required>
+    <input type="number" id="wishlist_id" name="wishlist.id" placeholder="Wishlist ID" required>
+    <input type="number" id="product_id" name="product.id" placeholder="Product ID" required>
+    <button type="submit">Add to Wishlist</button>
+</form>
+
+document.getElementById('wishlistItemForm').addEventListener('submit', async (event) => {
+    event.preventDefault(); // Предотвращаем отправку формы
+    const wishlistItemData = {
+        quantity: parseInt(document.getElementById('quantity').value),
+        wishlist: {
+            id: parseInt(document.getElementById('wishlist_id').value),
+        },
+        product: {
+            id: parseInt(document.getElementById('product_id').value),
+        },
+    };
+    const result = await addWishlistItem(wishlistItemData);
+    console.log(result);
+});
+
+import { ref } from 'vue';
+
+const quantity = ref(1);
+const wishlist_id = ref(0);
+const product_id = ref(0);
+
+// You should import or define addWishlistItem function somewhere
+// Here is a placeholder example:
+async function addWishlistItem(data) {
+  // Your API call or logic here
+  return Promise.resolve(data); // Simulate async operation
+}
+
+const onSubmit = async () => {
+  const wishlistItemData = {
+    quantity: quantity.value,
+    wishlist: {
+      id: wishlist_id.value,
+    },
+    product: {
+      id: product_id.value,
+    },
+  };
+
+  const result = await addWishlistItem(wishlistItemData);
+  console.log(result);
+};
+
+; Route::delete('/wishlist-items/{wishlistItem}', [WishlistItemController::class, 'removeWishlistItem'])->name('delete-wishlistItem');
+async function removeWishlistItem(wishlistItemId) {
+    try {
+        const response = await fetch(`http://localhost:8000/wishlist-items/${wishlistItemId}`, {
+            method: 'DELETE',
+        });
+        if (!response.ok) {
+            throw new Error('Network response was not ok');
+        }
+        const result = await response.json();
+        return result;
+    } catch (error) {
+        console.error('Error removing wishlist item:', error);
+    }
+}

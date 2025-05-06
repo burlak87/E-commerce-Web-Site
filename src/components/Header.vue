@@ -13,9 +13,9 @@
     </article>
     <InputSearchForm/>
     <article class="iconsButton">
-      <button class="btn"><router-link to="/profile"><img src="../assets/images/Header&FooterImg/heart.png" alt=""></router-link></button>
+      <button class="btn"><router-link to="/signin"><img src="../assets/images/Header&FooterImg/heart.png" alt=""></router-link></button>
       <button class="btn"><router-link to="/profile"><img src="../assets/images/Header&FooterImg/user.png" alt=""></router-link></button>
-      <button class="btn"><router-link to="/profile"><img src="../assets/images/Header&FooterImg/shopping cart.png" alt=""></router-link></button>
+      <button class="btn"><router-link to="/signin"><img src="../assets/images/Header&FooterImg/shopping cart.png" alt=""></router-link></button>
     </article>
   </header>
 </template>

@@ -6,7 +6,7 @@
   <article class="bestPrice">
     <section class="title">
       <span class="spanTitle"></span>
-      <h2 class="textTitle">Buy Women's Clothing at Best Price</h2>
+      <h2 class="textTitle">At Best Price</h2>
     </section>
     <section class="bestPriceContainer">
       <article class="bestPriceBlock">

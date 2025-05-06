@@ -4,7 +4,7 @@
 .productCard {
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: start;
   aside {
     width: 214px;
     @include bannersLayout($jc: end, $ai: center, $gap: 16px);

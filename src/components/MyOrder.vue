@@ -1,5 +1,12 @@
 <script setup>
-  import { ref, computed } from 'vue';
+  import { ref, computed, onMounted } from 'vue';
+
+  const orderItems = ref([]);
+  const orderDetails = ref(null);
+  const myOrder = ref(null);
+  const loading = ref(false);
+  const error = ref(null);
+  const orderId = ref(1);
 
   const activeTab = ref('Active');
   const tabs = ref([
@@ -41,6 +48,67 @@
       if (activeTab.value === 'Completed') return order.status === 'Completed';
     })
   });
+
+  async function getOrderItems() {
+    try {
+      const response = await fetch('http://localhost:8000/order-items');
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      return data;
+    } catch (err) {
+      console.error('Error fetching order items:', err);
+      throw err;
+    }
+  }
+
+  async function getOrderDetailsById(id) {
+    try {
+      const response = await fetch(`http://localhost:8000/order-details/${id}`);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      return data;
+    } catch (err) {
+      console.error('Error fetching order details:', err);
+      throw err;
+    }
+  }
+
+  async function getMyOrderById(id) {
+    try {
+      const response = await fetch(`http://localhost:8000/my-orders/${id}`);
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      const data = await response.json();
+      return data;
+    } catch (err) {
+      console.error('Error fetching my order:', err);
+      throw err;
+    }
+  }
+
+  async function loadOrderData() {
+    loading.value = true;
+    error.value = null;
+
+    try {
+      orderItems.value = await getOrderItems();
+      orderDetails.value = await getOrderDetailsById(orderId.value);
+      myOrder.value = await getMyOrderById(orderId.value);
+    } catch (err) {
+      error.value = err.message || 'Unknown error';
+    } finally {
+      loading.value = false;
+    }
+  }
+
+  onMounted(() => {
+    loadOrderData();
+  });
 </script>
 
 <template>
@@ -75,7 +143,7 @@
             </section>
           </article>
           <article>
-            <button class="view-detail" @click.prevent="$routes.push({ name: 'OrderDetails' })">View Detail</button>
+            <button class="view-detail" @click.prevent="$router.push({ name: 'OrderDetails' })">View Detail</button>
           </article>
         </section>
       </article>

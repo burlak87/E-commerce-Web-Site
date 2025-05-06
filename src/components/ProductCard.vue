@@ -69,16 +69,6 @@
             <p>Free Shipping & Returns</p>
           </article>
         </section>
-        <section class="clothInfoContainer">
-          <article>
-            <span><img src="../assets/images/Truck.png" alt=""></span>
-            <p>Free Shipping</p>
-          </article>
-          <article>
-            <span><img src="../assets/images/Size&Fit.png" alt=""></span>
-            <p>Size & Fit</p>
-          </article>
-        </section>
       </article>
     </section>
   </article>

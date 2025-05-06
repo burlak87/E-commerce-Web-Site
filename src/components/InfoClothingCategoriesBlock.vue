@@ -6,7 +6,7 @@
   <article class="infoClothingCategories">
     <section class="title">
       <span class="spanTitle"></span>
-      <h2 class="textTitle">Clothing for Women Online in India</h2>
+      <h2 class="textTitle">Online Women Clothing</h2>
     </section>
     <section class="infoClothingText">
       <span class="infoClothingSpan">

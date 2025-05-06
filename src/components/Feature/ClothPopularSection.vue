@@ -17,7 +17,7 @@
       </section>
       <section class="btn">
         <button class="saveLikeBtn"><img src="../../assets/images/Header&FooterImg/heart.png" alt=""></button>
-        <button class="clothInfoPrice"> {{ price }} </button>
+        <button class="clothInfoPrice" @click.prevent="$router.push({ name: 'ProductDetail' })"> {{ price }} </button>
       </section>
     </article>  
   </section>

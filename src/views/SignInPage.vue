@@ -37,7 +37,7 @@
           </button>
           <a href="#" class="forgot-password">Forget your password?</a>
         </div>
-        <button type="submit" class="sign-in-button">Sign In</button>
+        <button type="submit" class="sign-in-button" @click.prevent="$router.push({ name: 'SignUp' })">Sign In</button>
         <p class="signup-prompt">
           Don’t have an account? <a href="#">Sign up</a>
         </p>
